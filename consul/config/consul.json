@@ -1,0 +1,14 @@
+{
+  "node_name": "microservices_test",
+  "server": true,
+  "bootstrap": true,
+  "ui_config": {
+    "enabled": true
+  },
+  "addresses": {
+    "http": "0.0.0.0"
+  },
+  "connect": {
+    "enabled": true
+  }
+}
