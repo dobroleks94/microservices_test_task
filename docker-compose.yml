@@ -26,3 +26,5 @@ services:
     restart: always
 #    ports:
 #      - "8020:8020"
+    depends_on:
+      - gateway

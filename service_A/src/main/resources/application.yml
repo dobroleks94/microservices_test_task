@@ -3,7 +3,8 @@ spring:
     name: service-a
   cloud:
     consul:
+#      host: localhost
+      host: consul
       port: 8500
-      config:
-        format: yaml
-        enabled: true
+server:
+  port: 8020
