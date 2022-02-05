@@ -19,3 +19,10 @@ services:
     restart: always
     ports:
       - "8010:8010"
+
+  service-a:
+    build: ./service_A
+    container_name: sa_container
+    restart: always
+    ports:
+      - "8020:8020"

@@ -5,6 +5,13 @@ spring:
     name: gateway
   cloud:
     consul:
-      host: localhost
-#      host: consul
+#      host: localhost
+      host: consul
       port: 8500
+    gateway:
+      routes:
+      - id: "A"
+#        uri: "http://localhost:8020"
+        uri: "lb://service-a"
+        predicates:
+        - "Path=/s-a/**"

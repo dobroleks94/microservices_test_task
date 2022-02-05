@@ -1,0 +1,10 @@
+server:
+  port: 8020
+spring:
+  application:
+    name: service-a
+  cloud:
+    consul:
+#      host: localhost
+      host: consul
+      port: 8500
