@@ -18,11 +18,11 @@ services:
     container_name: gateway
     restart: always
     ports:
-      - "8010:8010"
+      - "9400:8010"
 
-  service-a:
+  sa:
     build: ./service_A
     container_name: sa_container
     restart: always
-    ports:
-      - "8020:8020"
+#    ports:
+#      - "8020:8020"
