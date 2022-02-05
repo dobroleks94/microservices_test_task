@@ -12,3 +12,10 @@ services:
     command:
       - "agent"
       - "-config-dir=/consul/config"
+
+  gateway:
+    build: ./gateway
+    container_name: gateway
+    restart: always
+    ports:
+      - "8010:8010"
