@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 @RestController
 @RequestMapping("/s-a")
@@ -15,9 +16,9 @@ public class GreetingController {
     private String applicationName;
 
     @RequestMapping(value = {"", "/greeting"}, method = RequestMethod.GET)
-    public String sayHello(){
+    public String sayHello() throws UnknownHostException {
         return String.format("Hello from '%s' (address: %s)",
                 applicationName,
-                InetAddress.getLoopbackAddress().getHostAddress());
+                InetAddress.getLocalHost().getHostName());
     }
 }

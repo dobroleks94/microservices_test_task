@@ -6,5 +6,7 @@ spring:
 #      host: localhost
       host: consul
       port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${random.int}
 server:
   port: 8020

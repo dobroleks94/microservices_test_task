@@ -22,9 +22,9 @@ services:
 
   sa:
     build: ./service_A
-    container_name: sa_container
     restart: always
-#    ports:
-#      - "8020:8020"
     depends_on:
       - gateway
+#    container_name: sa_container
+#    ports:
+#      - "8020:8020"
