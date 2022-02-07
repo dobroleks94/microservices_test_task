@@ -1,1 +1,14 @@
-
+spring:
+  application:
+    name: service-c
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: "https://www.googleapis.com/oauth2/v3/certs"
+  cloud:
+    consul:
+      host: consul
+      port: 8500
+server:
+  port: 8040
