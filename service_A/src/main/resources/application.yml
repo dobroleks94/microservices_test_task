@@ -5,10 +5,13 @@ spring:
     loadbalancer:
       enabled: false
     consul:
-      host: localhost
-#      host: consul
+#      host: localhost
+      host: consul
       port: 8500
       discovery:
         instance-id: ${spring.application.name}:${random.int}
 server:
   port: 8020
+greeting:
+  message: "Hello from microservices CI-27 test!"
+

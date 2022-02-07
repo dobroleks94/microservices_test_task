@@ -1,24 +1,25 @@
 package test.microservices.service_a.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import lombok.AllArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import test.microservices.service_a.model.Greeting;
+import test.microservices.service_a.service.GreetingService;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 @RestController
 @RequestMapping("/s-a")
+@AllArgsConstructor
 public class GreetingController {
 
-    @Value("${spring.application.name}")
-    private String applicationName;
+    private final GreetingService greetingService;
 
-    @RequestMapping(value = {"", "/greeting"}, method = RequestMethod.GET)
-    public String sayHello() throws UnknownHostException {
-        return String.format("Hello from '%s' (address: %s)",
-                applicationName,
-                InetAddress.getLocalHost().getHostName());
+    @RequestMapping(value = {"", "/greeting"}, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Greeting sayHello() throws UnknownHostException {
+        return greetingService.resolveGreeting( InetAddress.getLocalHost().getHostName() );
     }
 }
