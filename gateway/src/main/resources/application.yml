@@ -7,8 +7,11 @@ spring:
         registration:
           google:
             provider: google
-            client-id: 779059902284-ojrhrohupddjgqc1f7p9heimru22e38u.apps.googleusercontent.com
-            client-secret: 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
+            clientId: 779059902284-ojrhrohupddjgqc1f7p9heimru22e38u.apps.googleusercontent.com
+            clientSecret: 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
+            redirectUri: http://localhost:9400/login/oauth2/code/google
+            authorizedGrantTypes: authorization_code
+            scope: openid,profile,email
   cloud:
     consul:
       host: consul
@@ -25,6 +28,5 @@ spring:
             - "Path=/s-c/**"
           filters:
             - "TokenRelay="
-            - "RemoveRequestHeader=Cookie"
 server:
   port: 8010

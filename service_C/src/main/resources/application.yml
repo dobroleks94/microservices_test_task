@@ -5,10 +5,13 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: "https://www.googleapis.com/oauth2/v3/certs"
+          jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
   cloud:
     consul:
       host: consul
       port: 8500
+interceptor:
+    header: "Authorization"
+    tokenType: "Bearer"
 server:
   port: 8040
