@@ -7,11 +7,16 @@ spring:
         registration:
           google:
             provider: google
-            clientId: 779059902284-ojrhrohupddjgqc1f7p9heimru22e38u.apps.googleusercontent.com
-            clientSecret: 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
-            redirectUri: http://localhost:9400/login/oauth2/code/google
-            authorizedGrantTypes: authorization_code
+            client-id: 779059902284-ojrhrohupddjgqc1f7p9heimru22e38u.apps.googleusercontent.com
+            client-secret: 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
+#            token-endpoint: https://oauth2.googleapis.com/token
+            redirect-uri: http://localhost:9400/login/oauth2/code/google
+            authorized-grant-types: authorization_code
             scope: openid,profile,email
+#          github:
+#            provider: github
+#            client-id: 049f346e072733454a32
+#            client-secret: 197af9740f4c3f2165847168e207998a3e8e1749
   cloud:
     consul:
       host: consul
@@ -27,6 +32,7 @@ spring:
           predicates:
             - "Path=/s-c/**"
           filters:
-            - "TokenRelay="
+            - "FetchJwtFromAccessToken"
+#            - "TokenRelay="
 server:
   port: 8010

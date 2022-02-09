@@ -25,14 +25,10 @@ services:
     restart: always
     depends_on:
       - gateway
-#    container_name: sa_container
-#    ports:
-#      - "8020:8020"
+
   sc:
     build: ./service_C
     restart: always
     container_name: sc_container
     depends_on:
       - gateway
-#    ports:
-#      - "8040:8040"
