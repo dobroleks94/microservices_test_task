@@ -8,7 +8,7 @@ import org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 
-public class SwitchLoadBalancerAlgo {
+public class SwitchLoadBalancerAlgorithm {
     @Bean
     public ReactorLoadBalancer<ServiceInstance> randomLoadBalancer(Environment env,
                                                                    LoadBalancerClientFactory lbClientFactory){

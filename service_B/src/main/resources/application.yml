@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: service-b
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+          jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
+  cloud:
+    consul:
+      host: consul
+      port: 8500
+interceptor:
+  header: "Authorization"
+  tokenType: "Bearer"
+server:
+  port: 8030
+

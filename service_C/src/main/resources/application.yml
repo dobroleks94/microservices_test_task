@@ -11,8 +11,15 @@ spring:
     consul:
       host: consul
       port: 8500
+
 interceptor:
     header: "Authorization"
     tokenType: "Bearer"
+user:
+  details:
+    id: "sub"
+    name: "given_name"
+    surname: "family_name"
+    email: "email"
 server:
   port: 8040

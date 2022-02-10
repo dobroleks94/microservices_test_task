@@ -23,12 +23,26 @@ services:
   sa:
     build: ./service_A
     restart: always
+#    ports:
+#      - "8020:8020"
     depends_on:
       - gateway
+
+  sb:
+    build: ./service_B
+    container_name: sb_container
+    hostname: b.service
+    restart: always
+#    ports:
+#      - "8030:8030"
+
 
   sc:
     build: ./service_C
     restart: always
     container_name: sc_container
+#    ports:
+#      - "8040:8040"
     depends_on:
       - gateway
+      - sb

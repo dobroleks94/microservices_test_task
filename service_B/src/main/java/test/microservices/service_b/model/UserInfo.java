@@ -1,11 +1,11 @@
-package test.microservices.service_c.model;
+package test.microservices.service_b.model;
 
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
-public class User {
+public class UserInfo {
     private String uuid;
     private String name;
     private String surname;

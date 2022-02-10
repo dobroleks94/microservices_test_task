@@ -1,4 +1,4 @@
-package test.microservices.service_c;
+package test.microservices.service_b;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class ServiceCApplication {
+public class ServiceBApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ServiceCApplication.class, args);
+        SpringApplication.run(ServiceBApplication.class, args);
     }
 
 }
