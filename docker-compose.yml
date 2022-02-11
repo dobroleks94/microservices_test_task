@@ -7,8 +7,6 @@ services:
       - ./consul/config/consul.json:/consul/config/consul.json
     ports:
       - "8500:8500"
-      - "8600:8600/tcp"
-      - "8600:8600/udp"
     command:
       - "agent"
       - "-config-dir=/consul/config"
