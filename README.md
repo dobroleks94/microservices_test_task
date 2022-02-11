@@ -4,7 +4,7 @@ Test task for implementation of microservices approach (SOA)
 
 ## General project architecture representation
 
-![Microservices-Test](https://user-images.githubusercontent.com/45817745/153627473-742f13cf-7a84-4ee2-a58f-94168bee3498.png)
+   ![Microservices-Test](https://user-images.githubusercontent.com/45817745/153627473-742f13cf-7a84-4ee2-a58f-94168bee3498.png)
 
 ## Technologies used
 
