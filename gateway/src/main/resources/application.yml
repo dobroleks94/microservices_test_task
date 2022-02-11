@@ -9,7 +9,6 @@ spring:
             provider: google
             client-id: 779059902284-ojrhrohupddjgqc1f7p9heimru22e38u.apps.googleusercontent.com
             client-secret: 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
-#            token-endpoint: https://oauth2.googleapis.com/token
             redirect-uri: http://localhost:9400/login/oauth2/code/google
             authorized-grant-types: authorization_code
             scope: openid,profile,email

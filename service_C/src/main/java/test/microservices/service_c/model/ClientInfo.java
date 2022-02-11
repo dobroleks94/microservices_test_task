@@ -1,4 +1,4 @@
-package test.microservices.service_b.model;
+package test.microservices.service_c.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;

@@ -7,7 +7,5 @@ import lombok.Data;
 @Builder
 public class UserClientInfoDTO {
     private UserInfo user;
-//    private ClientInfo client;
-//    private String user;
-    private String client;
+    private ClientInfo client;
 }
