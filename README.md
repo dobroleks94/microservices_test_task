@@ -4,7 +4,7 @@ Test task for implementation of microservices approach (SOA)
 
 ## General project architecture representation
 
-![](/home/dobroshtan/Documents/Microservices-Test.png)
+   ![Microservices-Test](https://user-images.githubusercontent.com/45817745/153627473-742f13cf-7a84-4ee2-a58f-94168bee3498.png)
 
 ## Technologies used
 
@@ -31,4 +31,4 @@ The core endpoints to fetch the resource:
 
 - `/s-a/greeting`: **Gateway** redirects to the **Service A** - the endpoint owner - to get greeting message.
 - `/s-c/info/user`: The **Service C**'s endpoint which supplies the information about user.
-- `/s-c/info`: The owner of the endpoint is the as in the previous one. This endpoint requests **Service B**'s `/s-b/info` one, obtains the _User+Client_ information and responses with it.
+- `/s-c/info`: The owner of the endpoint is the as in the previous one. This endpoint requests **Service B**'s endpoint `/s-b/info`, obtains the _User+Client_ information and responses with it.
