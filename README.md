@@ -31,4 +31,4 @@ The core endpoints to fetch the resource:
 
 - `/s-a/greeting`: **Gateway** redirects to the **Service A** - the endpoint owner - to get greeting message.
 - `/s-c/info/user`: The **Service C**'s endpoint which supplies the information about user.
-- `/s-c/info`: The owner of the endpoint is the as in the previous one. This endpoint requests **Service B**'s endpoint `/s-b/info`, obtains the _User+Client_ information and responses with it.
+- `/s-c/info`: The owner of the endpoint is the same as the previous one. This endpoint requests **Service B**'s endpoint `/s-b/info`, obtains the _User+Client_ information and responses with it.
