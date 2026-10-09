@@ -4,6 +4,6 @@ COPY . /usr/app/
 WORKDIR /usr/app/
 EXPOSE 8040
 
-RUN mv target/*.jar serviceC.jar
+RUN mv build/libs/*.jar serviceC.jar
 
 CMD java -jar serviceC.jar
