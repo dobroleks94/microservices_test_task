@@ -1,0 +1,45 @@
+{{- $name := required "app.name is required" .Values.name -}}
+{{- $bindingPort := required "app.bindingPort is required" .Values.bindingPort -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $name }}
+  labels:
+    app: {{ $name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ $name }}
+  template:
+    metadata:
+      labels:
+        app: {{ $name }}
+    spec:
+      {{- if .Values.discovery.enabled }}
+      serviceAccountName: {{ $name }}-discovery
+      {{- end }}
+      containers:
+      - name: {{ $name }}
+        image: "{{ .Values.image.repository | default $name }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ $bindingPort }}
+        {{- with .Values.envFromSecret }}
+        envFrom:
+        - secretRef:
+            name: {{ . }}
+        {{- end }}
+        {{- with .Values.readinessCheck }}
+        {{- if .enabled }}
+        readinessProbe:
+          httpGet:
+            path: {{ .path }}
+            port: {{ $bindingPort }}
+          initialDelaySeconds: {{ .initialDelaySeconds }}
+          periodSeconds: {{ .periodSeconds }}
+          failureThreshold: {{ .failureThreshold }}
+        {{- end }}
+        {{- end }}

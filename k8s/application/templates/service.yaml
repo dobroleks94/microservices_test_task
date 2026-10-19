@@ -1,0 +1,22 @@
+{{- $name := required "app.name is required" .Values.name -}}
+{{- $bindingPort := required "app.bindingPort is required" .Values.bindingPort -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $name }}
+  labels:
+    app: {{ $name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+  - name: {{ .Values.service.portName }}
+    port: {{ .Values.service.port | default $bindingPort }}
+    protocol: TCP
+    targetPort: {{ $bindingPort }}
+    {{- if and (eq .Values.service.type "NodePort") .Values.service.nodePort }}
+    nodePort: {{ .Values.service.nodePort }}
+    {{- end }}
+  selector:
+    app: {{ $name }}

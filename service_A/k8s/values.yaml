@@ -1,0 +1,4 @@
+app:
+  name: service-a
+  bindingPort: 8020
+  replicas: 3
