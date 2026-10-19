@@ -1,0 +1,41 @@
+{{- if .Values.discovery.enabled }}
+{{- $name := required "app.name is required" .Values.name -}}
+# Lets Spring Cloud Kubernetes discovery of {{ $name }} read Services/Endpoints in the namespace
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ $name }}-discovery
+  labels:
+    app: {{ $name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ $name }}-discovery-reader
+  labels:
+    app: {{ $name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+rules:
+  - apiGroups: [""]
+    resources: ["services", "endpoints", "pods"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ $name }}-discovery-reader
+  labels:
+    app: {{ $name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ $name }}-discovery
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ $name }}-discovery-reader
+{{- end }}

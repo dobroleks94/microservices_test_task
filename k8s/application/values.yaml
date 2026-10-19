@@ -1,0 +1,35 @@
+# Defaults for every service; each service overrides them in <service>/k8s/values.yaml under "app:"
+
+# Required. Name of Deployment/Service (= Service DNS name and spring.application.name)
+name: ""
+replicas: 1
+# Required. Port the application listens on inside the container (server.port)
+bindingPort: null
+
+image:
+  # Defaults to name
+  repository: ""
+  tag: latest
+  pullPolicy: Never
+
+service:
+  type: ClusterIP
+  # Defaults to bindingPort
+  port: null
+  # Fixed node port (30000-32767), used only with type NodePort
+  nodePort: null
+  portName: http
+
+# Name of an existing Secret whose keys are exposed to the container as environment variables
+envFromSecret: ""
+
+readinessCheck:
+  enabled: true
+  path: /actuator/health/readiness
+  initialDelaySeconds: 15
+  periodSeconds: 5
+  failureThreshold: 3
+
+# Spring Cloud Kubernetes discovery: creates <name>-discovery ServiceAccount allowed to read Services/Endpoints/Pods
+discovery:
+  enabled: false

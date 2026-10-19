@@ -7,11 +7,6 @@ spring:
           jwt:
             issuer-uri: https://accounts.google.com
             jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
-  cloud:
-    consul:
-      host: consul
-      port: 8500
-
 interceptor:
     header: "Authorization"
     tokenType: "Bearer"
@@ -23,3 +18,8 @@ user:
     email: "email"
 server:
   port: 8040
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true

@@ -1,0 +1,10 @@
+apiVersion: v2
+name: service-a
+description: "Service A: greeting service"
+type: application
+version: 0.1.0
+dependencies:
+  - name: application
+    version: 0.1.0
+    repository: file://../../k8s/application
+    alias: app

@@ -14,7 +14,7 @@ public class SecurityConfig {
     @Bean
     public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http) throws Exception {
         http.authorizeExchange()
-                .pathMatchers("/actuator/health", "/s-a/**").permitAll()
+                .pathMatchers("/actuator/health/**", "/s-a/**").permitAll()
                 .anyExchange().authenticated()
                 .and()
                 .oauth2Login(Customizer.withDefaults());

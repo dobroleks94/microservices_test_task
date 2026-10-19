@@ -1,0 +1,12 @@
+app:
+  name: gateway
+  bindingPort: 8010
+  service:
+    # NodePort 30940 is published by minikube as localhost:9400 (see deploy.sh)
+    type: NodePort
+    port: 9400
+    nodePort: 30940
+  discovery:
+    enabled: true
+  # GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET, created by deploy.sh from environment variables
+  envFromSecret: gateway-env

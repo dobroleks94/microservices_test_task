@@ -1,4 +1,4 @@
-FROM openjdk:17-alpine
+FROM eclipse-temurin:17-jdk-jammy
 
 COPY . /usr/app/
 WORKDIR /usr/app/

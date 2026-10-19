@@ -1,0 +1,5 @@
+app:
+  name: service-b
+  bindingPort: 8030
+  discovery:
+    enabled: true

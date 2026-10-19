@@ -1,0 +1,10 @@
+apiVersion: v2
+name: service-b
+description: "Service B: user and client info"
+type: application
+version: 0.1.0
+dependencies:
+  - name: application
+    version: 0.1.0
+    repository: file://../../k8s/application
+    alias: app

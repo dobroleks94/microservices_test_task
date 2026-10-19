@@ -7,8 +7,8 @@ spring:
         registration:
           google:
             provider: google
-            client-id: 779059902284-ojrhrohupddjgqc1f7p9heimru22e38u.apps.googleusercontent.com
-            client-secret: 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
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
             redirect-uri: http://localhost:9400/login/oauth2/code/google
             authorized-grant-types: authorization_code
             scope: openid,profile,email
@@ -17,9 +17,6 @@ spring:
 #            client-id: 049f346e072733454a32
 #            client-secret: 197af9740f4c3f2165847168e207998a3e8e1749
   cloud:
-    consul:
-      host: consul
-      port: 8500
     gateway:
       routes:
         - id: "A"
@@ -35,3 +32,8 @@ spring:
 #            - "TokenRelay="
 server:
   port: 8010
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
